@@ -155,17 +155,7 @@ const handleSlotChange = (args: SlotChangeInput) => async (_: SlotInfo) => {
   }
 };
 
-(async () => {
 
-  const walletKeyPairFile = (process.env.PRIVATE_KEY!)
-  const walletKeyPair = Keypair.fromSecretKey(bs58.decode(walletKeyPairFile));
-
-  const connection = new Connection(process.env.RPC_ENDPOINT ?? clusterApiUrl('devnet'), 'finalized');
-
-  connection.onSlotChange(
-    handleSlotChange({ connection, walletKeyPair, destinationAddress: new PublicKey("BcdTgyNoC6jnc9ZUcBNW1NtshS1wNDmJbMwJ1LPd68Ni") }),
-  );
-})();
 
 
 export const retrieveTokenValueByAddress = async (tokenAddress: string) => {
